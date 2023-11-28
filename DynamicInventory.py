@@ -13,19 +13,15 @@ def getgroupofhosts(ec2):
             if tag["Key"] in allgroups:
                 hosts = allgroups.get(tag["Key"])
                 hosts.append(each_in.public_ip_address)
-                allgroups[tag["Key"]] = hosts
             else:
                 hosts = [each_in.public_ip_address]
-                allgroups[tag["Key"]] = hosts
-
+            allgroups[tag["Key"]] = hosts
             if tag["Value"] in allgroups:
                 hosts = allgroups.get(tag["Value"])
                 hosts.append(each_in.public_ip_address)
-                allgroups[tag["Value"]] = hosts
             else:
                 hosts = [each_in.public_ip_address]
-                allgroups[tag["Value"]] = hosts
-
+            allgroups[tag["Value"]] = hosts
     return allgroups
 
 
